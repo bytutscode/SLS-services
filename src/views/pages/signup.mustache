@@ -1,0 +1,19 @@
+{{> partials/header}}
+<body>
+    <main>
+        
+     <form action="/cadastrar" method="POST">
+        <img draggable="false" src="/assets/images/icons/job-search-svgrepo-com.svg" alt="">
+         {{#error}}<div id="error">{{error}}</div>{{/error}}
+        <input type="text" name="name" id="name" placeholder="nome">
+        <input type="text" name="email" id="email" placeholder="Email">
+        <input type="tel" id="phone" name="phone" placeholder="(DDD)telefone/whatsapp">
+        <input type="password" id="password" name="password" placeholder="Senha (8 digitos)">
+        <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Repita sua senha">
+        <button type="submit">Cadastrar</button>
+        <p>Já tem uma conta? <a href="/entrar">Fazer login</a></p>
+    </form>
+
+    </main>
+    <script src="/assets/scripts/signup.js"></script>
+<body>

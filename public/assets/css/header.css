@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@200&family=Quicksand:wght@300;500&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Noto Serif', serif;
+    font-family: 'Quicksand', sans-serif;
+
+}
+
+body {
+    background-color: white;
+}
+
+header {
+    width: 100%;
+    border-bottom: 1px solid white;
+}
+
+header>div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    background-color: #1A5D1A;
+    padding: 5px 20px;
+}
+
+header>div a {
+    text-decoration: none;
+
+}
+
+header>div>* {}
+
+header img {
+    width: 100px;
+
+}
+
+header div form {
+    max-width: 400px;
+}
+
+header div form input {
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    outline: none;
+}
+
+header div form button {
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 30px;
+}
+
+header nav ul li a {
+    color: white;
+    text-transform: uppercase;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+
+
+header nav ul li::after {
+    content: '';
+    width: 20%;
+    background-color: white;
+    height: 2px;
+    display: block;
+    margin: auto;
+    transition: all ease-in-out .7s;
+}
+
+header nav ul li:hover::after {
+    width: 100%;
+}
+
+header nav ul li.active::after {
+    width: 100%;
+}
+
+
+
+.button {
+    color: #1A5D1A;
+    padding: 5px 15px;
+    background-color: white;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+#leave {
+    padding: 5px 15px;
+    border-radius: 7px;
+    font-size: 15px;
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    text-shadow: 0px 0px 1px black;
+}
+
+.headeroptions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.headeroptions p {
+    color: white;
+    font-size: 18px;
+    margin: 0px 10px;
+
+}

@@ -1,0 +1,218 @@
+body * {
+
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                        supported by Chrome, Edge, Opera and Firefox */
+
+}
+
+body {
+    padding-bottom: 200px;
+}
+
+p {
+    user-select: text;
+}
+
+
+#banner {
+    width: 100%;
+    height: 60vh;
+    background: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 150px;
+}
+
+#banner h1 {
+    font-size: 40px;
+    color: #1A5D1A;
+    /* text-shadow: 0px 0px 2px black; */
+    text-align: center;
+}
+
+#banner form {
+    position: absolute;
+    bottom: -120px;
+    background-color: rgba(255, 255, 255, 0.329);
+    width: 100%;
+    border-radius: 15px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0px 3px 3px rgb(54, 54, 54);
+}
+
+#banner form * {
+    flex: 1;
+
+}
+
+#banner select,
+#state,
+#city,
+#search {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;
+}
+
+#option {
+    color: #1A5D1A;
+}
+
+#banner form #search {
+    flex: 3;
+}
+
+#banner form button {
+    padding: 15px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    flex: 0.3;
+    cursor: pointer;
+    color: white;
+    background-color: #1A5D1A;
+}
+
+h4 {
+    padding: 10px;
+}
+
+
+
+#services {
+    display: flex;
+    width: 100%;
+    gap: 30px;
+    padding: 30px;
+    flex-wrap: wrap;
+}
+
+.service {
+    flex: 1;
+    background-color: white;
+    padding: 5px;
+    text-align: center;
+    border-radius: 20px;
+    position: relative;
+    min-width: 20%;
+    max-width: 20%;
+    cursor: pointer;
+    color: black;
+    box-shadow: 0px 2px 4px black;
+    border-bottom: 5px solid green;
+}
+
+.service img.thumb {
+    border-radius: 20px;
+    width: 100%;
+    object-fit: cover;
+    height: 250px;
+}
+
+.service .location {
+    display: flex;
+    align-items: center;
+}
+
+.service .location img {
+    width: 15%;
+}
+
+.service h3 {
+    width: 100%;
+    color: black;
+    text-overflow: clip;
+}
+
+.service p {
+    max-width: 80%;
+    color: black;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: start;
+    text-overflow: ellipsis;
+}
+
+h2 {
+    text-align: center;
+    width: 100%;
+    color: #1a1a1a;
+}
+
+.float {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    bottom: 10px;
+    right: 10px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 25px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+
+}
+
+.my-float {
+    margin-top: 9px;
+}
+
+
+#pagination ul {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#pagination ul li {}
+
+#pagination ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 19px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+#pagination ul li a.active {
+    color: white;
+    border: 1px solid whitesmoke;
+    background-color: rgb(73, 73, 73);
+}

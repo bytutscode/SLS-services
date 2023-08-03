@@ -1,0 +1,18 @@
+{{> partials/header}}
+<body>
+    <main>
+      
+     <form action="/entrar" method="POST">
+        <img draggable="false" src="/assets/images/icons/job-search-svgrepo-com.svg" alt="">
+        {{#error}}<div id="error">{{error}}</div>{{/error}}
+        <input type="text" name="email" placeholder="Email">
+        <input type="password" name="password" placeholder="Senha">
+        <button type="submit">Entrar</button>
+        <a href="/recuperacao">Esqueceu a senha?</a>
+        <p>Novo por aqui? <a href="/cadastro">Cadastrar</a></p>
+    </form>
+
+    </main>
+
+    <script src="/assets/scripts/login.js"></script>
+<body>

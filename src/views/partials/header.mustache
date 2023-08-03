@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/header.css">
+    <link rel="stylesheet" href="/assets/css/{{css}}.css">
+    <title>{{title}}</title>
+</head>
+<body>
+<header>
+    <div>
+        <div>
+            <a href="/"><img draggable="false" src="/assets/images/icons/LOGO.png" alt=""></a>
+        </div>
+        <nav>
+            <ul>
+                
+
+            </ul>
+        </nav>
+        <div class="headeroptions">
+            {{#userName}}
+                <p>Olá, {{userName}}</p>
+                <a href="/anuncio" class="button">Anunciar</a>
+                <a href="/meus-servicos" class="button">Meus anuncios</a>
+                <a class="button" href="/logout">Sair</a>
+            {{/userName}}
+
+            {{^userName}}
+                <a class="button" href="/entrar">Entrar</a>
+                <a class="button" href="/cadastro">Criar Conta</a>
+            {{/userName}}
+            
+        </div>
+
+    </div>
+
+</header>
+    
+ 

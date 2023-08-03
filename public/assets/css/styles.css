@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@200&family=Quicksand:wght@300;500&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Noto Serif', serif;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    background-color: #1b1b1b;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    /* background-image: linear-gradient(to right, #1A5D1A, black); */
+    font-family: 'Noto Serif', serif;
+    font-family: 'Quicksand', sans-serif;
+}
+
+header {
+    width: 100%;
+    border-bottom: 1px solid white;
+}
+
+header>div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    background-color: #1A5D1A;
+    padding: 5px 20px;
+}
+
+header>div a {
+    text-decoration: none;
+
+}
+
+header>div>* {}
+
+header img {
+    width: 100px;
+}
+
+header div form {
+    max-width: 400px;
+}
+
+header div form input {
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    outline: none;
+}
+
+header div form button {
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 30px;
+}
+
+header nav ul li a {
+    color: white;
+    text-transform: uppercase;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+
+
+header nav ul li::after {
+    content: '';
+    width: 20%;
+    background-color: white;
+    height: 2px;
+    display: block;
+    margin: auto;
+    transition: all ease-in-out .7s;
+}
+
+header nav ul li:hover::after {
+    width: 100%;
+}
+
+header nav ul li.active::after {
+    width: 100%;
+}
+
+header button {
+    padding: 5px;
+    padding: 5px 15px;
+    border-radius: 7px;
+    font-size: 15px;
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    text-shadow: 0px 0px 1px black;
+}
+
+
+.button {
+    color: #1A5D1A;
+    padding: 5px 15px;
+    background-color: white;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+#leave {
+    padding: 5px 15px;
+    border-radius: 7px;
+    font-size: 15px;
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    text-shadow: 0px 0px 1px black;
+}
+
+.headeroptions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.headeroptions p {
+    color: white;
+    font-size: 18px;
+    margin: 0px 10px;
+
+}
+
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+main>* {
+    flex: 1;
+}
+
+main img {
+    width: 100%;
+    object-fit: cover;
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    max-width: 400px;
+    width: 100%;
+    backdrop-filter: blur(90%);
+
+    border-radius: 3px;
+}
+
+form img {
+    object-fit: cover;
+    width: 50%;
+    padding: 30px;
+
+}
+
+form {
+    color: black;
+    position: relative;
+}
+
+label {
+    text-align: start;
+    font-size: 22px;
+    align-self: flex-start;
+}
+
+form input,
+form button,
+#state,
+#city {
+    width: 100%;
+    border: none;
+    border-bottom: 3px solid #1A5D1A;
+    padding: 10px;
+    background-color: white;
+    outline: none;
+    font-size: 18px;
+    margin-top: 20px;
+    border-radius: 3px;
+    position: relative;
+}
+
+#state:focus,
+#city:focus {
+    bottom: 0;
+}
+
+form input#image {
+    margin-top: 0px;
+}
+
+form button {
+    width: 50%;
+    cursor: pointer;
+    background-color: #1A5D1A;
+    color: white;
+    border-bottom: 3px solid white;
+
+    transition: all ease-in-out .5s;
+}
+
+form button:hover {
+    background-color: #1A5D1A;
+    color: white;
+    border-bottom: 3px solid white;
+}
+
+form>a {
+    margin-top: 10px;
+}
+
+form>p {
+    margin-top: 10px;
+    color: black;
+}
+
+form a {
+    text-decoration: none;
+    color: #1A5D1A;
+}
+
+form #error {
+    padding: 5px;
+    background-color: rgb(255, 96, 96);
+    color: white;
+    border-radius: 5px;
+
+}
+
+form .errorInput {
+    width: 100%;
+    padding: 5px;
+    background-color: rgb(255, 96, 96);
+    color: white;
+    border-radius: 5px;
+}
+
+
+@media (max-width:800px) {
+    main {
+        display: block;
+
+    }
+
+    form {
+
+        margin: auto;
+        margin-top: 50px;
+    }
+}

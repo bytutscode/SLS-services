@@ -1,0 +1,31 @@
+{{>partials/header}}
+
+    <section>
+        <h1>Meus serviços</h1>
+
+        <ul id="services">
+                {{#services}}
+                    <li>
+                        <div class="service">
+                            <img draggable="false" src="{{pubPhoto}}" alt="">
+                            <h2>{{title}}</h2>
+                            <h3>{{city}} - {{state}}</h3>
+                            <h3>{{phone}}</h3>
+                            <a href="/meus-servicos/delete/{{id}}" class="deletebutton">Deletar</a>
+                        </div>
+                    </li>
+                {{/services}}
+
+                {{^services}}
+                    <h2>Você ainda não tem serviços ativo!</h2>
+                {{/services}}
+            
+        </ul>
+    </section>
+
+
+
+</main>
+
+
+</body>

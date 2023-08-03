@@ -1,0 +1,77 @@
+{{> partials/header}}
+
+<main>
+    <section id="banner">
+        <h1></h1>
+        <form action="/pag/" method="GET">
+            <input type="text" name="search" id="search" placeholder="O que você está buscando?" value="{{search}}">
+            <select name="state" id="state" >
+
+            </select>
+            <select name="city" id="city">
+                <option disabled selected value="CIDADES">Cidade</option>
+            </select>
+            <button>Procurar</button>
+        </form>
+    </section>
+    <h4>    {{#search}}
+            Resultados para "{{search}}" em {{#city}}{{city}}{{/city}} - {{#state}}{{state}}{{/state}} {{^state}}no Brasil{{/state}} 
+            {{/search}}
+
+            {{^search}}
+            {{#state}}Resultados em {{#city}}{{city}}{{/city}} - {{#state}}{{state}}{{/state}} {{^state}}no Brasil{{/state}}{{/state}}
+            {{/search}}
+    
+    </h4>
+    <section id="services">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  
+        {{#services}}
+            <div class="service">
+            <img draggable="false"  class="thumb" src="{{pubPhoto}}"
+                alt="">
+            <h3>{{title}}</h3>
+             <div class="location">
+                <img draggable="false" src="/assets/images/icons/user-round-svgrepo-com.svg" alt="nome do usuário">
+                <p>{{username}}</p>
+            </div>
+            <div class="location">
+                <img draggable="false" src="/assets/images/icons/location-pin-alt-1-svgrepo-com.svg" alt="localização">
+                <p>{{city}} - {{state}}</p>
+            </div>
+            <div class="location">
+                <img draggable="false" src="/assets/images/icons/whatsapp-svgrepo-com.svg" alt="contato">
+                <p>{{phone}}</p>
+            </div>
+            <a href="https://api.whatsapp.com/send?phone=55{{whatsapp}}" class="float" target="_blank">
+                <i class="fa fa-whatsapp my-float"></i>
+            </a>
+           
+        </div>
+         {{/services}}
+
+         {{^services}}
+          <h2>Não foi encontrado nenhum serviço :/</h2>
+         {{/services}}
+         
+    </section>
+
+  
+    <div id="pagination">
+        <ul>
+        {{#pagination}}
+            <li><a class="{{status}}" href="{{url}}">{{page}}</a></li>
+        {{/pagination}}
+        </ul>
+    </div>
+ 
+
+
+</main>
+
+<script src="/assets/scripts/estados.js"></script>
+<script src="/assets/scripts/fillState.js"></script>
+
+</body>
+
+</html>
