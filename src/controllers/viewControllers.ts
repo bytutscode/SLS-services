@@ -5,6 +5,7 @@ import { getWhatsapp } from '../helpers/getwhatsapp';
 import { setPagination } from '../helpers/setPagination';
 import { Pub, PubInstance } from '../models/Pub';
 import { User } from '../models/User';
+import { checkUserAndSendLink } from './RecuperationControllers';
 
 
 
@@ -120,6 +121,14 @@ export const signUpPage = async (req: Request, res: Response) => {
 }
 
 export const forgetPass = async (req: Request, res: Response) => {
+    let { token } = req.params;
+
+    if (token) {
+        checkUserAndSendLink(req, res);
+        return
+    }
+
+
     res.render('pages/forgetpass', {
         title: 'Recuperação',
         css: 'styles'

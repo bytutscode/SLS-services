@@ -7,6 +7,7 @@ import * as PubControllers from '../controllers/PubControllers';
 import * as UserControllers from '../controllers/UserControllers';
 import upload from '../middleware/multer';
 import { sendChangePasswordLink } from '../controllers/EmailControllers';
+import * as recuperation from "../controllers/RecuperationControllers";
 
 
 
@@ -25,6 +26,7 @@ router.get('/pag/:pag?', controllersIndex.homeSearch);
 router.get('/entrar', Auth.notlogged, controllersIndex.loginPage);
 router.get('/cadastro', Auth.notlogged, controllersIndex.signUpPage);
 router.get('/recuperacao/:token?', Auth.notlogged, controllersIndex.forgetPass);
+router.post('/recuperacao/:token', Auth.notlogged, recuperation.changeUserPassword);
 router.post('/recuperacao', Auth.notlogged, sendChangePasswordLink);
 router.get('/logout', AuthControllers.logout);
 router.get('/anuncio', Auth.private, controllersIndex.addPage);
