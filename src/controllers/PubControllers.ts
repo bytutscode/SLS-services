@@ -89,7 +89,7 @@ export const addService = async (req: Request, res: Response) => {
     newPost.city = city;
 
     // reading the received file
-    const data = await fs.promises.readFile(req.file.path);
+    const data = req.file.buffer;
 
     try {
         // sending the request to upload in IMGUR
@@ -100,8 +100,6 @@ export const addService = async (req: Request, res: Response) => {
             },
         });
 
-        //deleting file from our server
-        fs.promises.unlink(req.file.path);
 
         //verifying if the image have been uploaded
         if (response.status !== 200) {
@@ -113,15 +111,12 @@ export const addService = async (req: Request, res: Response) => {
             return
         }
 
-        // saving our img reference and deletehash in our database
+        // saving our img reference 
 
         newPost.pubPhoto = response.data.data.link;
         newPost.pubPhotoDelete = response.data.data.deletehash;
 
     } catch (err) {
-        //deleting file from our server
-        fs.promises.unlink(req.file.path);
-
 
         res.render('pages/newPub', {
             error: 'Houve algum problema no processo de upload da sua imagem!',
