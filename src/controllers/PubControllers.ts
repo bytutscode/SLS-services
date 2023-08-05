@@ -4,7 +4,6 @@ import { User } from '../models/User';
 import { matchedData, validationResult } from 'express-validator';
 import { states } from '../helpers/states';
 import axios from 'axios';
-import fs from 'fs';
 
 export const addService = async (req: Request, res: Response) => {
     const userName = req.cookies.userName;
