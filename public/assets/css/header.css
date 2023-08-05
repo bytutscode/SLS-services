@@ -11,6 +11,12 @@
 
 body {
     background-color: white;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    flex-direction: column;
 }
 
 header {
@@ -24,16 +30,21 @@ header>div {
     justify-content: space-between;
     width: 100%;
     align-items: center;
-    background-color: #1A5D1A;
+    background-color: #272829;
     padding: 5px 20px;
 }
+
+header #navmobile {
+    display: flex;
+    gap: 10px;
+}
+
+
 
 header>div a {
     text-decoration: none;
 
 }
-
-header>div>* {}
 
 header img {
     width: 100px;
@@ -75,28 +86,9 @@ header nav ul li a {
 
 
 
-header nav ul li::after {
-    content: '';
-    width: 20%;
-    background-color: white;
-    height: 2px;
-    display: block;
-    margin: auto;
-    transition: all ease-in-out .7s;
-}
-
-header nav ul li:hover::after {
-    width: 100%;
-}
-
-header nav ul li.active::after {
-    width: 100%;
-}
-
-
 
 .button {
-    color: #1A5D1A;
+    color: #272829;
     padding: 5px 15px;
     background-color: white;
     border-radius: 7px;
@@ -126,4 +118,19 @@ header nav ul li.active::after {
     font-size: 18px;
     margin: 0px 10px;
 
+}
+
+
+
+
+
+
+@media (max-width:900px) {
+    header img {
+        width: 150px;
+    }
+
+    header #navmobile {
+        flex-direction: column;
+    }
 }

@@ -16,12 +16,14 @@ body * {
 
 }
 
-body {
-    padding-bottom: 200px;
-}
-
 p {
     user-select: text;
+}
+
+body {
+    max-width: 1980px;
+    margin: auto;
+    background-color: #D8D9DA;
 }
 
 
@@ -41,7 +43,7 @@ p {
 
 #banner h1 {
     font-size: 40px;
-    color: #1A5D1A;
+    color: #61677A;
     /* text-shadow: 0px 0px 2px black; */
     text-align: center;
 }
@@ -49,7 +51,7 @@ p {
 #banner form {
     position: absolute;
     bottom: -120px;
-    background-color: rgba(255, 255, 255, 0.329);
+    background-color: white;
     width: 100%;
     border-radius: 15px;
     height: 120px;
@@ -61,6 +63,8 @@ p {
     border-bottom: 1px solid #ccc;
     box-shadow: 0px 3px 3px rgb(54, 54, 54);
 }
+
+
 
 #banner form * {
     flex: 1;
@@ -81,7 +85,7 @@ p {
 }
 
 #option {
-    color: #1A5D1A;
+    color: #61677A;
 }
 
 #banner form #search {
@@ -97,7 +101,7 @@ p {
     flex: 0.3;
     cursor: pointer;
     color: white;
-    background-color: #1A5D1A;
+    background-color: #61677A;
 }
 
 h4 {
@@ -107,33 +111,34 @@ h4 {
 
 
 #services {
-    display: flex;
-    width: 100%;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: auto;
     padding: 30px;
-    flex-wrap: wrap;
 }
 
 .service {
-    flex: 1;
+    width: auto;
     background-color: white;
     padding: 5px;
     text-align: center;
     border-radius: 20px;
     position: relative;
-    min-width: 20%;
-    max-width: 20%;
-    cursor: pointer;
     color: black;
     box-shadow: 0px 2px 4px black;
-    border-bottom: 5px solid green;
+    border-bottom: 5px solid #272829;
+    overflow: hidden;
+
 }
+
 
 .service img.thumb {
     border-radius: 20px;
     width: 100%;
     object-fit: cover;
     height: 250px;
+    overflow: hidden;
 }
 
 .service .location {
@@ -149,6 +154,7 @@ h4 {
     width: 100%;
     color: black;
     text-overflow: clip;
+    padding: 10px;
 }
 
 .service p {
@@ -196,7 +202,6 @@ h2 {
     align-items: center;
 }
 
-#pagination ul li {}
 
 #pagination ul li a {
     text-decoration: none;
@@ -215,4 +220,43 @@ h2 {
     color: white;
     border: 1px solid whitesmoke;
     background-color: rgb(73, 73, 73);
+}
+
+
+
+
+
+/* mobile reponsividade */
+
+@media (max-width:1000px) {
+
+    #services {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width:870px) {
+
+    #services {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 10px;
+    }
+}
+
+@media (max-width:700px) {
+    #banner form {
+        flex-direction: column;
+        gap: 7px;
+        height: fit-content;
+    }
+
+
+}
+
+@media (max-width:450px) {
+
+    #services {
+        grid-template-columns: repeat(1, 1fr);
+        padding: 10px;
+    }
 }

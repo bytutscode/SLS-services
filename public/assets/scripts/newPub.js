@@ -47,7 +47,7 @@ form.addEventListener('submit', (e) => {
 // adding back the pattern border on click of every input
 inputs.forEach((i) => {
     i.addEventListener('click', () => {
-        i.style.borderColor = '#1A5D1A';
+        i.style.borderColor = '#61677A';
         i.focus()
     })
 })

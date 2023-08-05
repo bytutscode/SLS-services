@@ -14,135 +14,11 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     color: white;
-    /* background-image: linear-gradient(to right, #1A5D1A, black); */
+    /* background-image: linear-gradient(to right, #61677A, black); */
     font-family: 'Noto Serif', serif;
     font-family: 'Quicksand', sans-serif;
 }
 
-header {
-    width: 100%;
-    border-bottom: 1px solid white;
-}
-
-header>div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    align-items: center;
-    background-color: #1A5D1A;
-    padding: 5px 20px;
-}
-
-header>div a {
-    text-decoration: none;
-
-}
-
-header>div>* {}
-
-header img {
-    width: 100px;
-}
-
-header div form {
-    max-width: 400px;
-}
-
-header div form input {
-    padding: 10px;
-    font-size: 18px;
-    border: none;
-    outline: none;
-}
-
-header div form button {
-    padding: 10px;
-    font-size: 18px;
-    border: none;
-    cursor: pointer;
-
-}
-
-header nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-evenly;
-    gap: 30px;
-}
-
-header nav ul li a {
-    color: white;
-    text-transform: uppercase;
-    font-size: 14px;
-    cursor: pointer;
-}
-
-
-
-header nav ul li::after {
-    content: '';
-    width: 20%;
-    background-color: white;
-    height: 2px;
-    display: block;
-    margin: auto;
-    transition: all ease-in-out .7s;
-}
-
-header nav ul li:hover::after {
-    width: 100%;
-}
-
-header nav ul li.active::after {
-    width: 100%;
-}
-
-header button {
-    padding: 5px;
-    padding: 5px 15px;
-    border-radius: 7px;
-    font-size: 15px;
-    background-color: white;
-    color: black;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    text-shadow: 0px 0px 1px black;
-}
-
-
-.button {
-    color: #1A5D1A;
-    padding: 5px 15px;
-    background-color: white;
-    border-radius: 7px;
-    cursor: pointer;
-}
-
-#leave {
-    padding: 5px 15px;
-    border-radius: 7px;
-    font-size: 15px;
-    background-color: white;
-    color: black;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    text-shadow: 0px 0px 1px black;
-}
-
-.headeroptions {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-.headeroptions p {
-    color: white;
-    font-size: 18px;
-    margin: 0px 10px;
-
-}
 
 main {
     width: 100%;
@@ -200,7 +76,7 @@ form button,
 #city {
     width: 100%;
     border: none;
-    border-bottom: 3px solid #1A5D1A;
+    border-bottom: 3px solid #61677A;
     padding: 10px;
     background-color: white;
     outline: none;
@@ -222,7 +98,7 @@ form input#image {
 form button {
     width: 50%;
     cursor: pointer;
-    background-color: #1A5D1A;
+    background-color: #61677A;
     color: white;
     border-bottom: 3px solid white;
 
@@ -230,7 +106,7 @@ form button {
 }
 
 form button:hover {
-    background-color: #1A5D1A;
+    background-color: #61677A;
     color: white;
     border-bottom: 3px solid white;
 }
@@ -246,7 +122,7 @@ form>p {
 
 form a {
     text-decoration: none;
-    color: #1A5D1A;
+    color: #61677A;
 }
 
 form #error {
@@ -265,6 +141,18 @@ form .errorInput {
     border-radius: 5px;
 }
 
+footer {
+    padding: 12px;
+    margin-top: 100px;
+    background-color: black;
+    color: #999;
+    text-align: center;
+}
+
+footer a {
+    text-decoration: none;
+    color: #2f38bb;
+}
 
 @media (max-width:800px) {
     main {

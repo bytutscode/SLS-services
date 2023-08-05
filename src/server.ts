@@ -7,6 +7,7 @@ import cors from 'cors';
 import MustacheExpress from 'mustache-express';
 import Path from 'path';
 import cookieParser from 'cookie-parser';
+import { errorPage } from './controllers/viewControllers';
 dotenv.config();
 
 
@@ -24,13 +25,13 @@ server.engine('mustache', MustacheExpress());
 server.use(Express.urlencoded({ extended: true }));
 server.use(Express.json());
 server.use(cors());
-server.use(cookieParser())
-
-//stating our router
-server.use(router);
+server.use(cookieParser());
 
 //stating a public folder
 server.use(Express.static(Path.join(__dirname, '../public')));
+
+//stating our router
+server.use(router);
 
 
 //setting the port and initializing the server

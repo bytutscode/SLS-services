@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/header.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
     <link rel="stylesheet" href="/assets/css/{{css}}.css">
     <title>{{title}}</title>
 </head>
@@ -23,10 +24,12 @@
         </nav>
         <div class="headeroptions">
             {{#userName}}
-                <p>Olá, {{userName}}</p>
-                <a href="/anuncio" class="button">Anunciar</a>
-                <a href="/meus-servicos" class="button">Meus anuncios</a>
-                <a class="button" href="/logout">Sair</a>
+               <div id="navmobile">
+                    <p>Olá, {{userName}}</p>
+                    <a href="/anuncio" class="button">Anunciar</a>
+                    <a href="/meus-servicos" class="button">Meus anuncios</a>
+                    <a class="button" href="/logout">Sair</a>
+               </div>
             {{/userName}}
 
             {{^userName}}

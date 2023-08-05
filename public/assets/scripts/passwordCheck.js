@@ -17,6 +17,6 @@ form.addEventListener('submit', (e) => {
 
 inputs.forEach(input => {
     input.addEventListener('click', () => {
-        input.style.borderColor = '#1A5D1A'
+        input.style.borderColor = '#61677A'
     })
 })

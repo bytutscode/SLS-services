@@ -46,28 +46,5 @@ export default {
             errorMessage: 'Senha deve tem no mínimo 8 caracteres e no máximo 50!',
             optional: false
         }
-    }),
-
-    pubValidation: checkSchema({
-        title: {
-            optional: false,
-            errorMessage: 'Titulo tem que ter no minimo 4 caractere e no máximo 50',
-            trim: true,
-            isLength: {
-                options: { min: 4, max: 50 }
-            },
-            isString: true
-        },
-        state: {
-            optional: false,
-            errorMessage: 'Estado inválido!'
-        },
-        city: {
-            optional: false,
-            errorMessage: 'Cidade inválida!'
-
-        }
-
-
     })
 }

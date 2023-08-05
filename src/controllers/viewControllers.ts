@@ -21,7 +21,7 @@ export const home = async (req: Request, res: Response) => {
 
     //pagination config
     let pag = parseInt(req.params.pag);
-    let limit = 1;
+    let limit = 12;
     let offset = 0;
 
     if (!isNaN(pag) && pag > 0) {
@@ -55,7 +55,7 @@ export const homeSearch = async (req: Request, res: Response) => {
 
     //pagination config
     let pag = parseInt(req.params.pag);
-    let limit = 1;
+    let limit = 12;
     let offset = 0;
 
     if (!isNaN(pag) && pag > 0) {
@@ -97,7 +97,7 @@ export const homeSearch = async (req: Request, res: Response) => {
         title: 'Serviços',
         userName,
         services,
-        css: 'search',
+        css: 'home',
         search, state, city,
         pagination,
     })
@@ -144,6 +144,12 @@ export const addPage = async (req: Request, res: Response) => {
         css: 'styles',
         userName
     })
+}
+
+export const errorPage = async (req: Request, res: Response) => {
+    res.render('pages/404');
+    res.status(404)
+    return
 }
 
 

@@ -38,11 +38,11 @@ ul#services li {
     gap: 50px;
 }
 
+
+
 .service>* {
     flex: 1;
 }
-
-.service h1 {}
 
 .service h2,
 h3 {
@@ -59,9 +59,9 @@ h3 {
 
 
 .service img {
-    height: 100%;
     flex: 1;
-    min-width: 100px;
+    width: 100px;
+    height: 100%;
     object-fit: cover;
     border-bottom-right-radius: 20%;
     border-top-right-radius: 20%;
@@ -78,4 +78,49 @@ h3 {
     min-width: 150px;
     max-width: 150px;
     text-align: center;
+}
+
+
+
+@media (max-width:910px) {
+
+    ul#services {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        margin: auto;
+    }
+
+    ul#services li {
+        width: auto;
+        height: 100%;
+        overflow: hidden;
+    }
+
+
+    .service {
+        gap: 5px;
+        flex-direction: column;
+
+    }
+
+    .service>* {
+        flex: 1;
+    }
+}
+
+@media (max-width:750px) {
+    ul#services {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+@media (max-width:500px) {
+    ul#services {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
 }
