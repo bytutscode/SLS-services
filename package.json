@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.ts",
   "scripts": {
-    "start": "src/server.ts",
+    "start": "node src/server.ts",
     "test": "nodemon src/server.ts"
   },
   "keywords": [],
