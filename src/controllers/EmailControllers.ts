@@ -41,7 +41,7 @@ export const sendChangePasswordLink = async (req: Request, res: Response) => {
     let mensage = {
         from: 'SLS SERVICES',
         to: [userEmail],
-        replyTo: 'SLSSERVICES@GMAIL.COM',
+        replyTo: 'slsservicessz@gmail.com',
         subject: 'Recuperação de conta',
         html: htmlRecuperation,
         mensage: '',
@@ -65,7 +65,7 @@ export const serviceApprovedEmail = async (user: UserInstance) => {
     let mensage = {
         from: 'SLS SERVICES',
         to: [user.email],
-        replyTo: 'SLSSERVICES@GMAIL.COM',
+        replyTo: 'slsservicessz@gmail.com',
         subject: 'Recuperação de conta',
         html: htmlApproved,
         mensage: '',
@@ -74,6 +74,7 @@ export const serviceApprovedEmail = async (user: UserInstance) => {
     }
 
     mensage.html = mensage.html.replace('[Nome do Usuário]', user.username);
+    mensage.subject = "Serviço Aprovado";
 
     transport.sendMail(mensage);
 }

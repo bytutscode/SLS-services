@@ -10,7 +10,7 @@ Bem-vindo à Plataforma de Anúncios de Serviços, uma aplicação web desenvolv
 
 - **Visualização de Anúncios:** Os usuários têm a opção de explorar uma área geral com todos os serviços anunciados. Filtros de pesquisa permitem refinar os resultados por palavra-chave, estado ou cidade.
 
-- **Área do Usuário:** Cada usuário tem uma área pessoal onde podem gerenciar seus anúncios publicados. Isso inclui a capacidade de editar, excluir ou adicionar novos serviços.
+- **Área do Usuário:** Cada usuário tem uma área pessoal onde podem gerenciar seus anúncios publicados. Isso inclui a capacidade excluir seus serviços.
 
 - **Aprovação de Anúncios pelo ADM:** Antes que um anúncio se torne público, os administradores têm a capacidade de aprovar ou rejeitar os serviços propostos, garantindo que apenas conteúdo relevante e apropriado seja exibido.
 

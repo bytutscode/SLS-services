@@ -31,10 +31,15 @@
         </nav>
         <div class="headeroptions">
             {{#userName}}
+            <div id="menuMobile">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
                <div id="navmobile">
                     <p>Olá, {{userName}}</p>
-                        {{#adm}} <a href="/adm" class="button">ADM</a>{{/adm}}
-                    <a href="/anuncio" class="button">Anunciar</a>
+                        {{#adm}} <a href="/adm" class="button">Área Administrador</a>{{/adm}}
+                    <a href="/anuncio" class="button">Novo anuncio</a>
                     <a href="/meus-servicos" class="button">Meus anuncios</a>
                     <a class="button" href="/logout">Sair</a>
                </div>

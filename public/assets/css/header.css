@@ -17,11 +17,16 @@ body {
     justify-content: space-between;
     text-align: center;
     flex-direction: column;
+    padding-top: 60px !important;
 }
 
 header {
     width: 100%;
     border-bottom: 1px solid white;
+    position: fixed;
+    top: 0px;
+    height: 60px;
+    z-index: 999999;
 }
 
 header>div {
@@ -127,10 +132,81 @@ header nav ul li a {
 
 @media (max-width:900px) {
     header img {
-        width: 150px;
+        width: 100px;
     }
 
     header #navmobile {
         flex-direction: column;
+        position: fixed;
+        max-width: 400px;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        background-color: #272829ea;
+        z-index: 1000;
+        padding: 70px 15px;
+        margin-right: -100%;
+        transition: all ease-in-out .5s;
+    }
+
+    header #navmobile.active {
+        margin-right: 0%;
+    }
+
+    header #menuMobile {
+        width: 30px;
+        height: 20px;
+        position: fixed;
+        top: 20px;
+        right: 10px;
+        z-index: 1111;
+        transition: all ease-in-out .5s;
+    }
+
+    header #menuMobile .bar {
+        width: 100%;
+        height: 3px;
+        background-color: white;
+        margin-top: 5px;
+        transition: all ease-in-out .5s;
+    }
+
+    header #menuMobile.active #navmobile {
+        margin-right: 0px;
+
+    }
+
+    header #menuMobile .bar:nth-child(1) {
+        margin-top: 0px;
+        transition: all ease-in-out .5s;
+    }
+
+    header #menuMobile.active .bar:nth-child(1) {
+        margin-top: 5px;
+        margin-bottom: -3px;
+        transform: rotate(45deg);
+        transition: all ease-in-out .5s;
+    }
+
+    header #menuMobile.active .bar:nth-child(2) {
+        opacity: 0;
+        margin: 0px;
+        transition: all ease-in-out .5s;
+    }
+
+    header #menuMobile.active .bar:nth-child(3) {
+        margin-top: -3px;
+        transform: rotate(-45deg);
+        transition: all ease-in-out .5;
+    }
+
+    .button {
+        color: #272829;
+        padding: 6px 5px;
+        background-color: white;
+        border-radius: 7px;
+        cursor: pointer;
     }
 }
