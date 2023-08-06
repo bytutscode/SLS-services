@@ -89,14 +89,14 @@ header nav ul li a {
 
 .button {
     color: #272829;
-    padding: 5px 15px;
+    padding: 4px 10px;
     background-color: white;
     border-radius: 7px;
     cursor: pointer;
 }
 
 #leave {
-    padding: 5px 15px;
+    padding: 4px 10px;
     border-radius: 7px;
     font-size: 15px;
     background-color: white;

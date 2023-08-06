@@ -11,7 +11,7 @@ import axios from 'axios';
 export const getMyServices = async (req: Request, res: Response) => {
     const { token } = req.cookies;
     const { userName } = req.cookies;
-    const adm = req.cookies.ADM;
+    let adm = req.cookies.ADM;
 
     const user = await User.findOne({ where: { token } });
     let services = await Pub.findAll({ where: { userId: user?.id } });

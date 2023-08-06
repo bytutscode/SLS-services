@@ -50,7 +50,7 @@ export const sendChangePasswordLink = async (req: Request, res: Response) => {
     }
 
     mensage.html = mensage.html.replace('[Nome do Usuário]', checkUser.username)
-    mensage.html = mensage.html.replace('[Link de Redefinição de Senha]', `http://sls-services.vercel.app/${checkUser.token}`)
+    mensage.html = mensage.html.replace('[Link de Redefinição de Senha]', `http://sls-services.vercel.app/recuperacao/${checkUser.token}`)
 
     await transport.sendMail(mensage);
     res.status(200);
@@ -74,8 +74,6 @@ export const serviceApprovedEmail = async (user: UserInstance) => {
     }
 
     mensage.html = mensage.html.replace('[Nome do Usuário]', user.username);
-    mensage.html = mensage.html.replace('[Link de Redefinição de Senha]', `http://sls-services.vercel.app/${user.token}`);
-
 
     transport.sendMail(mensage);
 }

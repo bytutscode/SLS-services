@@ -5,9 +5,11 @@ import { getStateSail } from "../helpers/getStateSail";
 import { setPaginationADM } from "../helpers/setPagination";
 import { serviceApprovedEmail } from "./EmailControllers";
 import { User } from "../models/User";
+import axios from "axios";
 
 export const waitListToAprove = async (req: Request, res: Response) => {
-    const { userName, ADM } = req.cookies;
+    const { userName } = req.cookies;
+    const adm = req.cookies.ADM
     //pagination config
     let pag = parseInt(req.params.pag);
     let limit = 12;
@@ -36,7 +38,7 @@ export const waitListToAprove = async (req: Request, res: Response) => {
         css: 'home',
         pagination,
         userName,
-        ADM
+        adm
     })
 }
 
@@ -75,6 +77,12 @@ export const rejectService = async (req: Request, res: Response) => {
         res.redirect('/adm');
         return
     }
+
+    axios.delete(`${process.env.IMGURDELETE}/${service.pubPhotoDelete}`, {
+        headers: {
+            Authorization: process.env.IMGUR
+        }
+    });
 
     await service.destroy();
 
