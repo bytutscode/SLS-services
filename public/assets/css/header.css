@@ -94,7 +94,7 @@ header nav ul li a {
 
 .button {
     color: #272829;
-    padding: 4px 10px;
+    padding: 10px 13px;
     background-color: white;
     border-radius: 7px;
     cursor: pointer;
@@ -120,6 +120,7 @@ header nav ul li a {
 
 .headeroptions p {
     color: white;
+    padding:10px;
     font-size: 18px;
     margin: 0px 10px;
 
