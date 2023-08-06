@@ -74,7 +74,11 @@ export default {
         //checking if the validation of received items is ok
         let validation = validationResult(req);
         if (!validation.isEmpty()) {
-            res.render('pages/login', { error: 'Senha ou email inválido!', css: 'styles' });
+            res.render('pages/login', {
+                title: 'login',
+                error: 'Senha ou email inválido!',
+                css: 'styles'
+            });
             return
         }
 
@@ -84,7 +88,11 @@ export default {
         let verifyEmail = await User.findOne({ where: { email } });
 
         if (!verifyEmail) {
-            res.render('pages/login', { error: 'Email /ou senha incorretos!', css: 'styles' });
+            res.render('pages/login', {
+                title: 'login',
+                error: 'Email /ou senha incorretos!',
+                css: 'styles'
+            });
             return
         }
 
@@ -95,14 +103,24 @@ export default {
         //comparing our hash with the password sended
         let passwordMatches = await bcrypt.compare(password, user.password);
         if (!passwordMatches) {
-            res.render('pages/login', { error: 'Email /ou senha incorretos!', css: 'styles' },)
+            res.render('pages/login', {
+                title: 'login',
+                error: 'Email /ou senha incorretos!',
+                css: 'styles'
+            })
             return
         }
 
         res.cookie('token', user.token, { maxAge: 31536000000, httpOnly: true })
         res.cookie('userName', user.username, { maxAge: 31536000000, httpOnly: true });
 
-        res.redirect('./');
+        if (user.position === 'ADM') {
+            res.cookie('ADM', true, { maxAge: 31536000000, httpOnly: true })
+        } else {
+            res.cookie('ADM', null, { expires: new Date(0) });
+        }
+
+        res.redirect('/');
 
     },
 

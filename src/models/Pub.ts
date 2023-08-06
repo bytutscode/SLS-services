@@ -11,7 +11,8 @@ export interface PubInstance extends Model {
     city: string,
     phone: string,
     username: string,
-    whatsapp: string
+    whatsapp: string,
+    status: number
 }
 
 export const Pub = sequelize.define<PubInstance>('Pub', {
@@ -24,6 +25,7 @@ export const Pub = sequelize.define<PubInstance>('Pub', {
     city: DataTypes.STRING,
     phone: DataTypes.STRING,
     username: DataTypes.STRING,
-    whatsapp: DataTypes.STRING
+    whatsapp: DataTypes.STRING,
+    status: DataTypes.INTEGER
 }, { tableName: 'pubs', timestamps: false })
 

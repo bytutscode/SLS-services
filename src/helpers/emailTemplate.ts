@@ -22,3 +22,15 @@ export let htmlRecuperation = `<div style="background-color: black;color:white;t
 </p>
 </div>
 `;
+
+export let htmlApproved = `<div style="background-color: black;color:white;text-align:center ;">
+<img draggable="false" src="https://imgur.com/zE7lnFJ" alt="">
+<h1>Serviço APROVADO</h1>
+<p>Olá [Nome do Usuário],
+    <br>
+    Seu serviço já está online na nossa plataforma
+    Atenciosamente,
+    A Equipe da SLS SERVICES
+</p>
+</div>
+`;

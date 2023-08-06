@@ -2,32 +2,13 @@
 
 <main>
     <section id="banner">
-        <h1>Explore um Mundo de Possibilidades</h1>
-        <form action="/pag/" method="GET">
-            <input type="text" name="search" id="search" placeholder="O que você está buscando?" value="{{search}}">
-            <select name="state" id="state" >
-
-            </select>
-            <select name="city" id="city">
-                <option disabled selected value="CIDADES">Cidade</option>
-            </select>
-            <button>Procurar</button>
-        </form>
+        <h1>ADMINISTRADOR</h1>
     </section>
-    <h4>
-        {{#search}}
-            Resultados para "{{search}}" em {{#city}}{{city}}{{/city}} - {{#state}}{{state}}{{/state}} {{^state}}no Brasil{{/state}} 
-        {{/search}}
-
-        {{^search}}
-            {{#state}}Resultados em {{#city}}{{city}}{{/city}} - {{#state}}{{state}}{{/state}} {{^state}}no Brasil{{/state}}{{/state}}
-        {{/search}}
-    </h4>
-
+     <h2>Serviços em análise</h2>
     <section id="services">
-
+   
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
+  
         {{#services}}
             <div class="service">
             <img draggable="false"  class="thumb" src="{{pubPhoto}}"
@@ -48,7 +29,12 @@
             <a href="https://api.whatsapp.com/send?phone=55{{whatsapp}}" class="float" target="_blank">
                 <i class="fa fa-whatsapp my-float"></i>
             </a>
-           
+           <form action="/adm/aprove/{{id}}" method="POST"> 
+                <button id="aprove" type="submit">Aprovar</button>
+           </form>
+           <form action="/adm/reject/{{id}}" method="POST"> 
+                <button id="decline" type="submit">Deletar</button>
+           </form>
         </div>
          {{/services}}
 
@@ -61,9 +47,9 @@
   
     <div id="pagination">
         <ul>
-            {{#pagination}}
-                <li><a class="{{status}}" href="{{url}}">{{page}}</a></li>
-            {{/pagination}}
+        {{#pagination}}
+            <li><a class="{{status}}" href="{{url}}">{{page}}</a></li>
+        {{/pagination}}
         </ul>
     </div>
  
@@ -71,9 +57,6 @@
 
 </main>
 {{>partials/footer}}
-<script src="/assets/scripts/estados.js"></script>
-<script src="/assets/scripts/fillState.js"></script>
-
 </body>
 
 </html>

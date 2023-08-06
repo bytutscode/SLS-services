@@ -20,7 +20,5 @@ export default {
             errorMessage: 'Cidade inválida!'
 
         }
-
-
     })
 }

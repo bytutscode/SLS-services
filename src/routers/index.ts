@@ -1,16 +1,14 @@
-import Express, { Request, Response } from 'express';
-import * as controllersIndex from '../controllers/viewControllers';
+import Express from 'express';
 import Auth from '../middleware/Auth';
 import AuthControllers from '../controllers/AuthControllers';
 import AuthValidator from '../validators/AuthValidator';
-import * as PubControllers from '../controllers/PubControllers';
-import * as UserControllers from '../controllers/UserControllers';
+import PubValidator from '../validators/PubValidator';
 import upload from '../middleware/multer';
 import { sendChangePasswordLink } from '../controllers/EmailControllers';
 import * as recuperation from "../controllers/RecuperationControllers";
-import PubValidator from '../validators/PubValidator';
-
-
+import * as controllersIndex from '../controllers/UserControllers';
+import * as PubControllers from '../controllers/PubControllers';
+import * as ADMControllers from '../controllers/ADMControllers';
 
 const router = Express.Router();
 
@@ -22,12 +20,15 @@ router.get('/ping', controllersIndex.ping);
 
 // main routes 
 router.get('/', controllersIndex.home);
-router.get('/pag/:pag?', controllersIndex.homeSearch);
+router.get('/pag/:pag?', controllersIndex.search);
 router.get('/entrar', Auth.notlogged, controllersIndex.loginPage);
 router.get('/cadastro', Auth.notlogged, controllersIndex.signUpPage);
+router.get('/meus-servicos', Auth.private, PubControllers.getMyServices);
+router.get('/meus-servicos/delete/:id', Auth.private, PubControllers.deleteMyService);
 router.get('/recuperacao/:token?', Auth.notlogged, controllersIndex.forgetPass);
-router.get('/logout', AuthControllers.logout);
 router.get('/anuncio', Auth.private, controllersIndex.addPage);
+router.get('/logout', AuthControllers.logout);
+
 
 //post routes
 router.post('/anuncio', Auth.private, upload.single('image'), PubValidator.pubValidation, PubControllers.addService);
@@ -36,10 +37,14 @@ router.post('/entrar', AuthValidator.login, AuthControllers.login);
 router.post('/recuperacao/:token', Auth.notlogged, recuperation.changeUserPassword);
 router.post('/recuperacao', Auth.notlogged, sendChangePasswordLink);
 
-//user routes 
-router.get('/meus-servicos', Auth.private, UserControllers.getMyServices);
-router.get('/meus-servicos/delete/:id', Auth.private, UserControllers.deleteMyService);
 
+//ADM routes
+router.get('/adm', Auth.privateADM, ADMControllers.waitListToAprove)
+router.get('/adm/:pag', Auth.privateADM, ADMControllers.waitListToAprove)
+router.post('/adm/aprove/:id', Auth.privateADM, ADMControllers.aproveService)
+router.post('/adm/reject/:id', Auth.privateADM, ADMControllers.rejectService)
+
+//404 PAGE
 router.use(controllersIndex.errorPage)
 
 export default router;

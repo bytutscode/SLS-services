@@ -3,16 +3,40 @@ import { Pub } from '../models/Pub';
 import { User } from '../models/User';
 import { matchedData, validationResult } from 'express-validator';
 import { states } from '../helpers/states';
+import { getStateSail } from "../helpers/getStateSail";
 import axios from 'axios';
+
+
+
+export const getMyServices = async (req: Request, res: Response) => {
+    const { token } = req.cookies;
+    const { userName } = req.cookies;
+    const adm = req.cookies.ADM;
+
+    const user = await User.findOne({ where: { token } });
+    let services = await Pub.findAll({ where: { userId: user?.id } });
+    services.forEach(service => getStateSail(service));
+
+    res.render('pages/myservices', {
+        title: 'Meus serviços',
+        css: 'myservices',
+        services,
+        userName,
+        adm
+    })
+}
 
 export const addService = async (req: Request, res: Response) => {
     const userName = req.cookies.userName;
+    const adm = req.cookies.ADM;
 
     const validation = validationResult(req);
     if (!validation.isEmpty()) {
         res.render('pages/newPub', {
+            title: 'Novo Serviço',
             error: "O anuncio precisa ser preenchido corretamente!",
-            userName
+            userName,
+            adm
         })
         return
     }
@@ -33,8 +57,10 @@ export const addService = async (req: Request, res: Response) => {
 
     if (!req.file) {
         res.render('pages/newPub', {
+            title: 'Novo Serviço',
             error: 'O anuncio precisa conter uma imagem',
-            userName
+            userName,
+            adm
         });
         res.status(400);
         return
@@ -45,7 +71,12 @@ export const addService = async (req: Request, res: Response) => {
 
     //making sure that the received file is a image and has the allowed size
     if (!allowed.includes(req.file.mimetype) || req.file.size > size) {
-        res.render('pages/newPub', { error: 'É apenas permitido imagens e que tenham até 10MB de tamanho!' });
+        res.render('pages/newPub', {
+            title: 'Novo Serviço',
+            error: 'É apenas permitido imagens e que tenham até 10MB de tamanho!',
+            userName,
+            adm
+        });
         return
     }
 
@@ -67,8 +98,10 @@ export const addService = async (req: Request, res: Response) => {
     if (!checkState) {
         res.status(400);
         res.render('pages/newPub', {
+            title: 'Novo Serviço',
             error: 'Estado inválido!',
-            userName
+            userName,
+            adm
         });
         return
     }
@@ -80,8 +113,10 @@ export const addService = async (req: Request, res: Response) => {
     if (!checkcity) {
         res.status(400);
         res.render('pages/newPub', {
+            title: 'Novo Serviço',
             error: 'Cidade inválida!',
-            userName
+            userName,
+            adm
         });
         return
     }
@@ -103,8 +138,10 @@ export const addService = async (req: Request, res: Response) => {
         //verifying if the image have been uploaded
         if (response.status !== 200) {
             res.render('pages/newPub', {
+                title: 'Novo Serviço',
                 error: 'Houve algum problema no processo de upload da sua imagem!',
-                userName
+                userName,
+                adm
             });
             res.status(400);
             return
@@ -118,9 +155,11 @@ export const addService = async (req: Request, res: Response) => {
     } catch (err) {
 
         res.render('pages/newPub', {
+            title: 'Novo Serviço',
             error: 'Houve algum problema no processo de upload da sua imagem!',
             userName,
-            css: 'styles'
+            css: 'styles',
+            adm
 
         });
         res.status(400);
@@ -128,5 +167,58 @@ export const addService = async (req: Request, res: Response) => {
     }
     newPost = await newPost.save();
 
-    res.render('pages/waitConfirmation', { userName, css: 'wait' })
+    res.render('pages/waitConfirmation', {
+        title: 'Aguardando Aprovação',
+        userName,
+        css: 'wait',
+        adm
+    })
+}
+
+
+export const deleteMyService = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const { token } = req.cookies;
+
+    let service = await Pub.findByPk(id);
+
+    if (!service) {
+        res.status(404);
+        res.redirect('/meus-servicos');
+        return
+    }
+    const user = await User.findOne({ where: { token } });
+
+    if (!user) {
+        res.status(401);
+        res.redirect('/meus-servicos');
+        return
+    }
+
+    if (user.id !== service.userId) {
+        res.status(403);
+        res.redirect('/meus-servicos');
+        return
+    }
+
+    try {
+        let deletePhoto = await axios.delete(`${process.env.IMGURDELETE}${service.pubPhotoDelete}`, {
+            headers: {
+                'Authorization': process.env.IMGUR as string
+            }
+        });
+    } catch (error) {
+        if (error) {
+            res.status(400);
+            res.redirect('/meus-servicos');
+            console.log(error)
+            return
+        }
+
+    }
+
+    await service.destroy();
+
+    res.status(200);
+    res.redirect('/meus-servicos');
 }

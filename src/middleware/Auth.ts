@@ -1,5 +1,4 @@
 import { User, UserInstance } from '../models/User';
-import jws, { JsonWebTokenError } from 'jsonwebtoken';
 import { NextFunction, Request, Response, } from 'express';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -21,11 +20,12 @@ export default {
         }
         next();
     },
+
+
     notlogged: async (req: Request, res: Response, next: NextFunction) => {
-        const token = req.cookies.token;
+        const { token } = req.cookies;
 
         if (!token) {
-            console.log('entrou')
             next()
             return
         }
@@ -39,7 +39,24 @@ export default {
         res.status(200);
         res.redirect('/');
     },
-    privateADM: async (req: Request, res: Response) => {
 
+
+
+    privateADM: async (req: Request, res: Response, next: NextFunction) => {
+        let { token } = req.cookies;
+
+        if (!token) {
+            res.redirect('/entrar');
+            return
+        }
+
+        let user = await User.findOne({ where: { token, position: 'ADM' } });
+
+        if (!user) {
+            res.redirect('/entrar');
+            return
+        }
+
+        next();
     }
 }

@@ -2,19 +2,19 @@
 <body>
     <main>
         
-     <form action="/anuncio" method="POST" enctype="multipart/form-data">
-         {{#error}}<div id="error">{{error}}</div>{{/error}}
-        <label for="image">Foto*</label>
-        <input type="file" name="image" id="image" placeholder="Foto">
-        <input type="text" name="title" id="title" placeholder="Titulo*">
-        <select name="state" id="state" id="state" >
-                <option disabled selected>Estado*</option>
+        <form action="/anuncio" method="POST" enctype="multipart/form-data">
+            {{#error}}<div id="error">{{error}}</div>{{/error}}
+            <label for="image">Foto*</label>
+            <input type="file" name="image" id="image" placeholder="Foto">
+            <input type="text" name="title" id="title" placeholder="Titulo*">
+            <select name="state" id="state" id="state" >
+                    <option disabled selected>Estado*</option>
             </select>
             <select name="city" id="city" id="city">
-                <option disabled selected value=false>Cidade*</option>
+                    <option disabled selected value=false>Cidade*</option>
             </select>
-        <button type="submit">Anunciar</button>
-    </form>
+            <button type="submit">Anunciar</button>
+        </form>
 
     </main>
     {{>partials/footer}}

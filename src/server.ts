@@ -1,13 +1,11 @@
 
 import Express, { Router } from 'express';
 import dotenv from 'dotenv';
-import { join } from 'path';
 import router from './routers/index';
 import cors from 'cors';
 import MustacheExpress from 'mustache-express';
 import Path from 'path';
 import cookieParser from 'cookie-parser';
-import { errorPage } from './controllers/viewControllers';
 dotenv.config();
 
 

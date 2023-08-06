@@ -5,6 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/images/icons/job-search-svgrepo-com.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/images/icons/job-search-svgrepo-com.svg" type="image/x-icon">
+    <meta property="og:title" content="SLS-services">
+    <meta property="og:description" content="Plataforma de anúncio de serviços">
+    <meta property="og:image" content="/assets/images/icons/thumb.png">
+    <meta property="og:url" content="https://sls-services.vercel.app">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" href="/assets/css/header.css">
     <link rel="stylesheet" href="/assets/css/footer.css">
     <link rel="stylesheet" href="/assets/css/{{css}}.css">
@@ -26,6 +33,7 @@
             {{#userName}}
                <div id="navmobile">
                     <p>Olá, {{userName}}</p>
+                        {{#adm}} <a href="/adm" class="button">ADM</a>{{/adm}}
                     <a href="/anuncio" class="button">Anunciar</a>
                     <a href="/meus-servicos" class="button">Meus anuncios</a>
                     <a class="button" href="/logout">Sair</a>

@@ -1,8 +1,19 @@
 import { Request, Response } from 'express';
 import nodemailer from 'nodemailer';
-import { htmlRecuperation } from '../helpers/emailTemplate';
-import { User } from '../models/User';
+import { htmlApproved, htmlRecuperation } from '../helpers/emailTemplate';
+import { User, UserInstance } from '../models/User';
 
+
+
+const transport = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false,
+    auth: {
+        user: process.env.EMAILSMTP,
+        pass: process.env.APPPASSWORD
+    }
+})
 
 export const sendChangePasswordLink = async (req: Request, res: Response) => {
 
@@ -10,6 +21,7 @@ export const sendChangePasswordLink = async (req: Request, res: Response) => {
     if (!userEmail) {
         res.status(200);
         res.render('pages/recuperationSent', {
+            title: 'recuperação',
             css: 'styles'
         })
         return
@@ -19,20 +31,11 @@ export const sendChangePasswordLink = async (req: Request, res: Response) => {
     if (!checkUser) {
         res.status(200);
         res.render('pages/recuperationSent', {
+            title: 'recuperação',
             css: 'styles'
         });
         return
     }
-
-    let transport = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
-        port: 587,
-        secure: false,
-        auth: {
-            user: process.env.EMAILSMTP,
-            pass: process.env.APPPASSWORD
-        }
-    })
 
 
     let mensage = {
@@ -47,11 +50,32 @@ export const sendChangePasswordLink = async (req: Request, res: Response) => {
     }
 
     mensage.html = mensage.html.replace('[Nome do Usuário]', checkUser.username)
-    mensage.html = mensage.html.replace('[Link de Redefinição de Senha]', `http://localhost:4000/recuperacao/${checkUser.token}`)
+    mensage.html = mensage.html.replace('[Link de Redefinição de Senha]', `http://sls-services.vercel.app/${checkUser.token}`)
 
     await transport.sendMail(mensage);
     res.status(200);
     res.render('pages/recuperationSent', {
+        title: 'recuperação',
         css: 'styles'
     })
+}
+
+
+export const serviceApprovedEmail = async (user: UserInstance) => {
+    let mensage = {
+        from: 'SLS SERVICES',
+        to: [user.email],
+        replyTo: 'SLSSERVICES@GMAIL.COM',
+        subject: 'Recuperação de conta',
+        html: htmlApproved,
+        mensage: '',
+        text: '',
+
+    }
+
+    mensage.html = mensage.html.replace('[Nome do Usuário]', user.username);
+    mensage.html = mensage.html.replace('[Link de Redefinição de Senha]', `http://sls-services.vercel.app/${user.token}`);
+
+
+    transport.sendMail(mensage);
 }

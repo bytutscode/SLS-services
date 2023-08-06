@@ -17,6 +17,7 @@ export const checkUserAndSendLink = async (req: Request, res: Response) => {
     }
 
     res.render('pages/forgetpass', {
+        title: 'email recuperação',
         css: 'styles'
     })
 }
@@ -45,6 +46,9 @@ export const changeUserPassword = async (req: Request, res: Response) => {
 
     await user.save();
 
-    res.render('pages/login', { css: 'styles' });
+    res.render('pages/login', {
+        title: 'login',
+        css: 'styles'
+    });
 
 }
