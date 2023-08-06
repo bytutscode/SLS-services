@@ -148,7 +148,7 @@ header nav ul li a {
         z-index: 1000;
         padding: 70px 15px;
         margin-right: -100%;
-        transition: all ease-in-out .5s;
+
     }
 
     header #navmobile.active {
