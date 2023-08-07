@@ -1,6 +1,7 @@
 export const setPagination = (totalItems: number, limit: number, offset: number, query?: object) => {
     let pages = [];
-    const totalPages = totalItems / limit;
+
+    const totalPages = totalItems / limit + 1;
     let queryString = '?';
     let curretPag = offset / limit + 1;
 
@@ -14,7 +15,6 @@ export const setPagination = (totalItems: number, limit: number, offset: number,
         pages.push({ page: i, status: '', url: `/pag/${i}/${queryString}` })
     }
 
-    pages.forEach(page => page.page === curretPag ? page.status = 'active' : page.status = '');
 
     if (curretPag <= 3) {
         pages = pages.slice(0, 5);
@@ -24,13 +24,15 @@ export const setPagination = (totalItems: number, limit: number, offset: number,
         pages = pages.slice(twoBefore, twoAfter)
     }
 
+    pages.forEach(page => page.page === curretPag ? page.status = 'active' : page.status = '');
+
     return pages;
 }
 
 
 export const setPaginationADM = (totalItems: number, limit: number, offset: number) => {
     let pages = [];
-    const totalPages = totalItems / limit;
+    const totalPages = totalItems / limit + 1;
     let curretPag = offset / limit + 1;
 
     for (let i = 1; i <= totalPages; i++) {
