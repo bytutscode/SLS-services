@@ -1,6 +1,6 @@
 # SLS - services | Plataforma de Anúncios de Serviços
 
-Bem-vindo à Plataforma de Anúncios de Serviços, uma aplicação web desenvolvida em Node.js e TypeScript que permite aos usuários publicarem e descobrirem uma variedade de serviços. A plataforma utiliza o banco de dados MySQL para armazenar as informações dos anúncios e fornece diversas funcionalidades para facilitar a experiência dos usuários.
+Plataforma de Anúncios de Serviços, uma aplicação web desenvolvida em Node.js e TypeScript que permite aos usuários publicarem e descobrirem uma variedade de serviços. A plataforma utiliza o banco de dados MySQL para armazenar as informações dos anúncios e fornece diversas funcionalidades para facilitar a experiência dos usuários.
 
 ## Recursos Principais
 
