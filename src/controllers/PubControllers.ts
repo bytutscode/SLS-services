@@ -14,7 +14,7 @@ export const getMyServices = async (req: Request, res: Response) => {
     let adm = req.cookies.ADM;
 
     const user = await User.findOne({ where: { token } });
-    let services = await Pub.findAll({ where: { userId: user?.id } });
+    let services = await Pub.findAll({ where: { userid: user?.id } });
     services.forEach(service => getStateSail(service));
 
     res.render('pages/myservices', {
@@ -81,7 +81,7 @@ export const addService = async (req: Request, res: Response) => {
     }
 
     let newPost = Pub.build();
-    newPost.userId = user.id;
+    newPost.userid = user.id;
     newPost.username = user.username;
     // handle title
     const firstLetter = title.slice(0, 1);
@@ -149,8 +149,8 @@ export const addService = async (req: Request, res: Response) => {
 
         // saving our img reference 
 
-        newPost.pubPhoto = response.data.data.link;
-        newPost.pubPhotoDelete = response.data.data.deletehash;
+        newPost.pubphoto = response.data.data.link;
+        newPost.pubphotodelete = response.data.data.deletehash;
 
     } catch (err) {
 
@@ -195,14 +195,14 @@ export const deleteMyService = async (req: Request, res: Response) => {
         return
     }
 
-    if (user.id !== service.userId) {
+    if (user.id !== service.userid) {
         res.status(403);
         res.redirect('/meus-servicos');
         return
     }
 
     try {
-        let deletePhoto = await axios.delete(`${process.env.IMGURDELETE}${service.pubPhotoDelete}`, {
+        let deletePhoto = await axios.delete(`${process.env.IMGURDELETE}${service.pubphotodelete}`, {
             headers: {
                 'Authorization': process.env.IMGUR as string
             }
