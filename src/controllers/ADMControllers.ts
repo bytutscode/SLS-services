@@ -78,7 +78,7 @@ export const rejectService = async (req: Request, res: Response) => {
         return
     }
 
-    axios.delete(`${process.env.IMGURDELETE}/${service.pubPhotoDelete}`, {
+    axios.delete(`${process.env.IMGURDELETE}/${service.pubphotodelete}`, {
         headers: {
             Authorization: process.env.IMGUR
         }
