@@ -57,7 +57,7 @@ export const aproveService = async (req: Request, res: Response) => {
 
     await service.save();
 
-    let serviceOnwer = await User.findOne({ where: { id: service.userId } });
+    let serviceOnwer = await User.findOne({ where: { id: service.userid } });
 
     if (serviceOnwer) {
         serviceApprovedEmail(serviceOnwer);
