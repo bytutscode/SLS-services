@@ -4,9 +4,9 @@ import sequelize from "../database/SQL";
 export interface PubInstance extends Model {
     id: number,
     title: string,
-    pubPhoto: string,
-    pubPhotoDelete: string
-    userId: number,
+    pubphoto: string,
+    pubphotodelete: string
+    userid: number,
     state: string,
     city: string,
     phone: string,
@@ -18,9 +18,9 @@ export interface PubInstance extends Model {
 export const Pub = sequelize.define<PubInstance>('Pub', {
     id: { primaryKey: true, autoIncrement: true, type: DataTypes.INTEGER },
     title: DataTypes.STRING,
-    pubPhoto: DataTypes.STRING,
-    pubPhotoDelete: DataTypes.STRING,
-    userId: DataTypes.INTEGER,
+    pubphoto: DataTypes.STRING,
+    pubphotodelete: DataTypes.STRING,
+    userid: DataTypes.INTEGER,
     state: DataTypes.STRING,
     city: DataTypes.STRING,
     phone: DataTypes.STRING,
